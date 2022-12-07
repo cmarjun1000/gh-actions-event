@@ -3,10 +3,15 @@ on:
   pull_request:
     types:
       - opened
+    branches:
+      - main
   workflow_dispatch:
   push:
     branches: 
       - main
+      - 'dev-*' # dev-new or dev-this-is-new any branches that start with dev
+    paths:
+      - './github/workflows/*'
 jobs:
   first-job:
     runs-on: ubuntu-latest
